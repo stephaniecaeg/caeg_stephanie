@@ -41,7 +41,7 @@ class UserController extends Controller {
             );
             if($this->UserModel->insert($data))
             {
-               redirect('user/show');
+               redirect('/user/show');
             }else{
                 echo 'Failed to insert data.';
             }
@@ -67,7 +67,7 @@ class UserController extends Controller {
                 );
                 if($this->UserModel->update($id, $data))
                 {
-                   redirect('/user/show');
+                   redirect('user/show');
                 }else{
                     echo 'Failed to update data.';
                 }
