@@ -45,8 +45,8 @@ class UserController extends Controller {
             }else{
                 echo 'Failed to insert data.';
             }
-            }
-                    $this->call->view('Create');
+         }
+        $this->call->view('Create');
             
         }
 
