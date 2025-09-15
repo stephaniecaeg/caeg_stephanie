@@ -14,54 +14,6 @@ h1 {
     font-size: 2rem;
 }
 
-/* --- Search + Actions --- */
-.actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.search-form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.search-form input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid #f5b6b0;
-    border-radius: 6px;
-    outline: none;
-    width: 200px;
-    font-size: 0.95rem;
-    background: #fff;
-    transition: border 0.3s, box-shadow 0.3s;
-}
-
-.search-form input[type="text"]:focus {
-    border-color: #ff99aa;
-    box-shadow: 0 0 5px rgba(204, 51, 102, 0.3);
-}
-
-.search-form button {
-    background-color: #cc3366;
-    color: white;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.search-form button:hover {
-    background-color: #a82b54;
-}
-
-/* --- Table --- */
 table {
     width: 80%;
     margin: 0 auto 20px auto; /* center table and add space below */
@@ -92,7 +44,6 @@ tr:hover {
     background-color: #ffe0e6; /* hover effect */
 }
 
-/* --- Links (Edit/Delete/Create) --- */
 a {
     text-decoration: none;
     padding: 6px 12px;
@@ -121,8 +72,7 @@ a[href*="delete"]:hover {
     background-color: #cc4c5d;
 }
 
-a[href*="create"],
-a.btn-secondary {
+a[href*="create"] {
     display: inline-block;
     background-color: #cc3366; /* dark pig pink */
     color: white;
@@ -134,41 +84,6 @@ a.btn-secondary {
     transition: background 0.3s;
 }
 
-a[href*="create"]:hover,
-a.btn-secondary:hover {
+a[href*="create"]:hover {
     background-color: #a82b54;
-}
-
-/* --- Pagination --- */
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-}
-
-.pagination a,
-.pagination strong {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border: 1px solid #f5b6b0;
-    border-radius: 6px;
-    text-decoration: none;
-    background: #fff5f2;
-    color: #cc3366;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-    min-width: 35px;
-}
-
-.pagination a:hover {
-    background-color: #ffe0e6;
-    color: #a82b54;
-}
-
-.pagination strong {
-    background-color: #ff99aa;
-    color: white;
-    border-color: #cc3366;
 }

@@ -4,14 +4,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /**
  * Controller: UserController
  * 
- * With Pagination Integrated
+ * Automatically generated via CLI.
  */
 class UserController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->call->model('UserModel');
-        $this->call->library('pagination'); // ✅ load pagination library
+        
     }
 
     public function profile($username, $name) {
@@ -22,42 +21,7 @@ class UserController extends Controller {
 
     public function show()
     {
-        // ✅ Current page
-        $page = 1;
-        if (isset($_GET['page']) && !empty($_GET['page'])) {
-            $page = $this->io->get('page');
-        }
-
-        // ✅ Search (optional, if you want filtering)
-        $q = '';
-        if (isset($_GET['q']) && !empty($_GET['q'])) {
-            $q = trim($this->io->get('q'));
-        }
-
-        $records_per_page = 5;
-
-        // ✅ Use paginated query (make sure UserModel has `page()` like in your first code)
-        $all = $this->UserModel->page($q, $records_per_page, $page);
-        $data['students'] = $all['records'];
-        $total_rows = $all['total_rows'];
-
-        // ✅ Pagination setup
-        $this->pagination->set_options([
-            'first_link'     => '⏮ First',
-            'last_link'      => 'Last ⏭',
-            'next_link'      => 'Next →',
-            'prev_link'      => '← Prev',
-            'page_delimiter' => '&page='
-        ]);
-        $this->pagination->set_theme('default'); 
-        $this->pagination->initialize(
-            $total_rows,
-            $records_per_page,
-            $page,
-            site_url('user/show') . '?q=' . urlencode($q)
-        );
-        $data['page'] = $this->pagination->paginate();
-
+        $data ['students'] = $this->UserModel->all();
         $this->call->view('Showdata', $data);
     }
 
@@ -83,61 +47,62 @@ class UserController extends Controller {
             }
          }
         $this->call->view('Create');
-    }
+            
+        }
 
-    public function update($id)
-    {
-        $data ['student'] = $this->UserModel->find($id);
-        if($this->io->method() == 'post')
+        public function update($id)
         {
-            $last_name = $this->io->post('last_name');
-            $first_name = $this->io->post('first_name');
-            $email = $this->io->post('email');
-            $role = $this->io->post('role');
-            $data = array(
-                'lastname' => $last_name,
-                'firstname' => $first_name,
-                'email' => $email,
-                'role' => $role
-            );
-            if($this->UserModel->update($id, $data))
+            $data ['student'] = $this->UserModel->find($id);
+            if($this->io->method() == 'post')
             {
-               redirect('user/show');
+                $last_name = $this->io->post('last_name');
+                $first_name = $this->io->post('first_name');
+                $email = $this->io->post('email');
+                $role = $this->io->post('role');
+                $data = array(
+                    'lastname' => $last_name,
+                    'firstname' => $first_name,
+                    'email' => $email,
+                    'role' => $role
+                );
+                if($this->UserModel->update($id, $data))
+                {
+                   redirect('user/show');
+                }else{
+                    echo 'Failed to update data.';
+                }
             }else{
-                echo 'Failed to update data.';
-            }
-        }else{
             $this->call->view('Update', $data);
+            }
         }
-    }
 
-    public function delete($id)
-    {
-        if($this->UserModel->delete($id))
+        public function delete($id)
         {
-            redirect('user/show');
-        }else{
-            echo 'Failed to delete data.';
+            if($this->UserModel->delete($id))
+            {
+                redirect('user/show');
+            }else{
+                echo 'Failed to delete data.';
+            }
         }
-    }
 
-    public function soft_delete($id)
-    {
-        if($this->UserModel->soft_delete($id))
+        public function soft_delete($id)
         {
-            redirect('user/show');
-        }else{
-            echo 'Failed to delete data.';
+            if($this->UserModel->soft_delete($id))
+            {
+                redirect('user/show');
+            }else{
+                echo 'Failed to delete data.';
+            }
         }
-    }
 
-    public function restore($id)
-    {
-        if($this->UserModel->restore($id))
+        public function restore($id)
         {
-            redirect('user/show');
-        }else{
-            echo 'Failed to restore data.';
+            if($this->UserModel->restore($id))
+            {
+                redirect('user/show');
+            }else{
+                echo 'Failed to restore data.';
+            }
         }
     }
-}
