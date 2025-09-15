@@ -14,90 +14,11 @@ h1 {
     font-size: 2rem;
 }
 
-/* 🔹 Actions (search + button row) */
-.actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px auto;
-    max-width: 80%;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.search-form {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.search-form input[type="text"] {
-    padding: 10px 12px;
-    border: 1px solid #f5b6b0;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    width: 250px;
-    transition: all 0.3s ease;
-}
-
-.search-form input[type="text"]:focus {
-    border-color: #ff99aa;
-    box-shadow: 0 0 6px rgba(255, 153, 170, 0.5);
-}
-
-.search-form button {
-    padding: 10px 18px;
-    background-color: #cc3366;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.search-form button:hover {
-    background-color: #a82b54;
-}
-
-.actions a.btn-secondary {
-    background-color: #ffb347; /* soft orange for "Back" */
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.actions a.btn-secondary:hover {
-    background-color: #e69530;
-}
-
-.actions a.btn-primary {
-    background-color: #cc3366; /* pig pink for "New" */
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.actions a.btn-primary:hover {
-    background-color: #a82b54;
-}
-
-/* 🔹 Table */
 table {
     width: 80%;
     margin: 0 auto 20px auto; /* center table and add space below */
     border-collapse: collapse;
-    background: #fff5f2; /* light peach background */
+    background: #fff5f2; /* light peach background for table */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -123,7 +44,6 @@ tr:hover {
     background-color: #ffe0e6; /* hover effect */
 }
 
-/* 🔹 Links in table */
 a {
     text-decoration: none;
     padding: 6px 12px;
@@ -152,37 +72,18 @@ a[href*="delete"]:hover {
     background-color: #cc4c5d;
 }
 
-/* 🔹 Pagination */
-.pagination {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.pagination a,
-.pagination strong {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border: 1px solid #f5b6b0;
-    background: #fff5f2;
-    color: #cc3366;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    min-width: 35px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.pagination a:hover {
-    background: #ffe0e6;
-    border-color: #ff99aa;
-    color: #a82b54;
-}
-
-.pagination strong {
-    background: #ff99aa;
-    border-color: #cc3366;
+a[href*="create"] {
+    display: inline-block;
+    background-color: #cc3366; /* dark pig pink */
     color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+a[href*="create"]:hover {
+    background-color: #a82b54;
 }
