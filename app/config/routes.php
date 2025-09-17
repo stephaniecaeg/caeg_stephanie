@@ -44,8 +44,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 //$router->get(' ', 'Welcome::index');
-$router->get('/about', 'Welcome::about');
-$router->get('/user/profile/{username}/{name}', 'UserController::profile');
+//$router->get('/about', 'Welcome::about');
+//$router->get('/user/profile/{username}/{name}', 'UserController::profile');
 $router->get('/user/show', 'UserController::show');
 $router->match('/', 'UserController::create', ['GET', 'POST']);
 $router->match('/user/update/{id}', 'UserController::update', ['GET', 'POST']);
