@@ -1,18 +1,16 @@
-FROM php:8.2-apache
+FROM php:8.0-apache
 
-# Install PDO MySQL
-RUN docker-php-ext-install pdo pdo_mysql
+# Update packages and install pdo_mysql extension
+RUN apt-get update && docker-php-ext-install pdo pdo_mysql
 
-# Enable Apache mod_rewrite
+# Enable Apache rewrite module (for clean URLs, if needed)
 RUN a2enmod rewrite
 
-# Allow .htaccess overrides
-RUN sed -i -e 's|<Directory /var/www/>|<Directory /var/www/ly>|' \
-    -e '/<Directory /var/www/ly>/,/<\/Directory>/ s|AllowOverride None|AllowOverride All|' \
-    /etc/apache2/apache2.conf
-# Copy app files
+# Copy project files to container
 COPY . /var/www/html/
 
-# Fix permissions
-RUN chown -R www-data:www-data /var/www/html \ && chmod -R 755 /var/www/html
+# Set working directory
+WORKDIR /var/www/html/
+
+# Expose port 80 for web traffic
 EXPOSE 80
