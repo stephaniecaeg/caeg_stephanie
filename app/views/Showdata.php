@@ -186,13 +186,13 @@ form a:hover {
     <h1>Welcome to Table View</h1>
 
     <!-- ✅ Search form -->
-    <form method="get" action="<?= site_url('user/show'); ?>">
+    <form method="get" action="<?= site_url('/'); ?>">
         <input type="text" name="q"
                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>"
                placeholder="Search student...">
         <button type="submit">Search</button>
         <?php if (!empty($_GET['q'])): ?>
-            <a href="<?= site_url('user/show'); ?>">Clear</a>
+            <a href="<?= site_url('/'); ?>">Clear</a>
         <?php endif; ?>
     </form>
 
@@ -236,6 +236,6 @@ form a:hover {
     <?php endif; ?>
 
     <br>
-    <a href="<?=site_url('/');?>">Create Record</a>
+    <a href="<?=site_url('/user/create');?>">Create Record</a>
 </body>
 </html>

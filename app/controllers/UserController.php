@@ -49,7 +49,7 @@ class UserController extends Controller {
             $total_rows,
             $records_per_page,
             $page,
-            site_url('user/show') . '?q=' . urlencode($q)
+            site_url('/') . '?q=' . urlencode($q)
         );
         $data['page'] = $this->pagination->paginate();
 
@@ -73,7 +73,7 @@ class UserController extends Controller {
             );
             if($this->UserModel->insert($data))
             {
-               redirect('user/show');
+               redirect('/');
             }else{
                 echo 'Failed to insert data.';
             }
@@ -98,7 +98,7 @@ class UserController extends Controller {
             );
             if($this->UserModel->update($id, $data))
             {
-               redirect('user/show');
+               redirect('/');
             }else{
                 echo 'Failed to update data.';
             }
@@ -111,7 +111,7 @@ class UserController extends Controller {
     {
         if($this->UserModel->delete($id))
         {
-            redirect('user/show');
+            redirect('/');
         }else{
             echo 'Failed to delete data.';
         }
@@ -121,7 +121,7 @@ class UserController extends Controller {
     {
         if($this->UserModel->soft_delete($id))
         {
-            redirect('user/show');
+            redirect('/');
         }else{
             echo 'Failed to delete data.';
         }
@@ -131,7 +131,7 @@ class UserController extends Controller {
     {
         if($this->UserModel->restore($id))
         {
-            redirect('user/show');
+            redirect('/');
         }else{
             echo 'Failed to restore data.';
         }
