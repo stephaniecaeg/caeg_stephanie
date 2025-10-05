@@ -5,38 +5,38 @@ class UserController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->call->model('UserModel');
-        $this->call->library('pagination'); // ✅ load pagination library
+
+        //$this->call->model('UserModel');
+        $this->call->library('pagination'); 
+        $this->call->library('auth'); 
+
+        // ✅ Require login
+        if (!$this->auth->is_logged_in()) {
+            redirect('auth/login');
+        }
     }
 
-    public function profile($username, $name) {
-        $data['username'] = $username;
-        $data['name'] = $name;
-        $this->call->view('ViewProfile', $data);
-    }
+ 
 
     public function show()
     {
-        // ✅ Get current page
         $page = 1;
         if (isset($_GET['page']) && !empty($_GET['page'])) {
             $page = $this->io->get('page');
         }
 
-        // ✅ Get search query
         $q = '';
         if (isset($_GET['q']) && !empty($_GET['q'])) {
             $q = trim($this->io->get('q'));
         }
 
-        $records_per_page = 5; // adjust how many rows per page
+        $records_per_page = 5;
 
-        // ✅ Fetch paginated results from UserModel
         $all = $this->UserModel->page($q, $records_per_page, $page);
         $data['students'] = $all['records'];
         $total_rows = $all['total_rows'];
 
-        // ✅ Setup pagination
+        // Pagination setup
         $this->pagination->set_options([
             'first_link'     => '⏮ First',
             'last_link'      => 'Last ⏭',
@@ -44,95 +44,131 @@ class UserController extends Controller {
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
         ]);
-        $this->pagination->set_theme('default'); // keep default style
+
+        $this->pagination->set_theme('default');
         $this->pagination->initialize(
             $total_rows,
             $records_per_page,
             $page,
-            site_url('/') . '?q=' . urlencode($q)
+            site_url('/students') . '?q=' . urlencode($q)
         );
         $data['page'] = $this->pagination->paginate();
 
-        // ✅ Send data to your Showdata view (your theme untouched)
-        $this->call->view('Showdata', $data);
+        $this->call->view('students/show', $data);
     }
 
-    public function create()
-    {
-        if($this->io->method() == 'post')
-        {
-            $last_name = $this->io->post('last_name');
-            $first_name = $this->io->post('first_name');
-            $email = $this->io->post('email');
-            $role = $this->io->post('role');
-            $data = array(
-                'lastname' => $last_name,
-                'firstname' => $first_name,
-                'email' => $email,
-                'role' => $role
-            );
-            if($this->UserModel->insert($data))
-            {
-               redirect('/');
-            }else{
-                echo 'Failed to insert data.';
-            }
-         }
-        $this->call->view('Create');
-    }
+    function create(){
+        if ($_SESSION['role'] !== 'admin') {
+    // redirect regular users to the dashboard
+    redirect(site_url('auth/dashboard'));
+    exit;
+}
 
-    public function update($id)
-    {
-        $data ['student'] = $this->UserModel->find($id);
-        if($this->io->method() == 'post')
-        {
-            $last_name = $this->io->post('last_name');
-            $first_name = $this->io->post('first_name');
-            $email = $this->io->post('email');
-            $role = $this->io->post('role');
+
+        if ($this->io->method() == 'post') {
+            $firstname= $this->io->post('first_name');
+            $lastname= $this->io->post('last_name');
+            $email= $this->io->post('email');
+             $role= $this->io->post('role');
+
             $data = array(
-                'lastname' => $last_name,
-                'firstname' => $first_name,
+                'first_name' => $firstname,
+                'last_name' => $lastname,
                 'email' => $email,
-                'role' => $role
+                'Role' => $role
             );
-            if($this->UserModel->update($id, $data))
-            {
-               redirect('/');
-            }else{
-                echo 'Failed to update data.';
+
+            if ($this->UserModel->insert($data)) {
+                redirect(site_url('/students'));
+            } else {
+                echo 'Error creating student.';
             }
-        }else{
-        $this->call->view('Update', $data);
+        } else {
+            $this->call->view('create');
         }
     }
 
-    public function delete($id)
+     function update($id){
+        if ($_SESSION['role'] !== 'admin') {
+    // redirect regular users to the dashboard
+    redirect(site_url('auth/dashboard'));
+    exit;
+}
+
+
+        $students = $this->UserModel->find($id);
+        if(!$students) {
+            echo "Student not found.";
+            return;
+        }
+
+        if ($this->io->method() == 'post') {
+            $firstname= $this->io->post('first_name');
+            $lastname= $this->io->post('last_name');
+            $email= $this->io->post('email');
+            $role= $this->io->post('role');
+            
+
+            $data = array(
+                'first_name' => $firstname,
+                'last_name' => $lastname,
+                'email' => $email,
+                'Role' => $role
+            );
+
+            if ($this->UserModel->update($id, $data)) {
+                redirect(site_url('/students'));
+            } else {
+                echo 'Error updating student.';
+            }
+        } else {
+            $data['student'] = $students;
+            $this->call->view('update', $data);
+        }
+    }
+     function delete($id){
+        if ($_SESSION['role'] !== 'admin') {
+    // redirect regular users to the dashboard
+    redirect(site_url('auth/dashboard'));
+    exit;
+}
+
+
+        if($this->UserModel->delete($id)){
+            redirect(site_url('/students'));
+        } else {
+            echo 'Error deleting student.';
+        }
+    }
+
+
+    /*public function soft_delete($id)
     {
-        if($this->UserModel->delete($id))
-        {
-            redirect('/');
-        }else{
+        // ✅ Admin only
+        if ($_SESSION['role'] !== 'admin') {
+            redirect(site_url('auth/dashboard'));
+            exit;
+        }
+
+        if ($this->UserModel->soft_delete($id)) {
+            redirect('user/show');
+        } else {
             echo 'Failed to delete data.';
         }
     }
-
-    public function soft_delete($id)
-    {
-        if($this->UserModel->soft_delete($id))
-        {
-            redirect('/');
-        }else{
-            echo 'Failed to delete data.';
-        }
-    }
+        */
 
     public function restore($id)
     {
-        if($this->UserModel->restore($id))
-        {
-            redirect('/');
-        }else{
+        // ✅ Admin only
+        if ($_SESSION['role'] !== 'admin') {
+            redirect(site_url('auth/dashboard'));
+            exit;
+        }
+
+        if ($this->UserModel->restore($id)) {
+            redirect('/students');
+        } else {
             echo 'Failed to restore data.';
         }
     }
