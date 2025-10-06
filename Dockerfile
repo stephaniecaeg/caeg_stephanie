@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 FROM php:8.2-apache
 
 # Install PDO MySQL
@@ -17,7 +17,7 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-=======
+
 FROM php:8.0-apache
 
 # Update packages and install pdo_mysql extension
@@ -33,5 +33,5 @@ COPY . /var/www/html/
 WORKDIR /var/www/html/
 
 # Expose port 80 for web traffic
->>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
+
 EXPOSE 80
