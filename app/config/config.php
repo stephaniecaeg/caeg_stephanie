@@ -214,8 +214,6 @@ $config['sess_cookie_name']        = 'LLSession';
 $config['sess_expiration']         = 7200;
  
 $config['sess_save_path']          = '/tmp';
-
-$config['sess_save_path']          = '';
  
 $config['sess_match_ip']           = TRUE;
 $config['sess_match_fingerprint']  = TRUE;
