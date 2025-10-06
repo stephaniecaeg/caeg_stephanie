@@ -1,4 +1,4 @@
-<?php
+<?php 
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -18,16 +18,16 @@ $role = $_SESSION['role'] ?? null;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Showdata - Company Portal</title>
+  <title>Showdata</title>
   <style>
 :root {
-  --primary: #ff6699;       /* Soft pink */
-  --primary-dark: #e05588;  /* Darker pink */
-  --accent: #ffd1dc;        /* Light pastel accent */
-  --bg-gradient: linear-gradient(135deg, #ffe6eb, #ffd1dc, #ffc1cc);
+  --primary: #2ecc71;       /* Main green */
+  --primary-dark: #27ae60;  /* Darker green */
+  --accent: #eafaf1;        /* Light green accent */
+  --bg-gradient: linear-gradient(135deg, #e8f8f5, #d4efdf, #a9dfbf);
   --card-bg: #ffffff;
-  --text: #4a2c2a;
-  --muted: #a77b7b;
+  --text: #1b4d3e;
+  --muted: #6b8e68;
   --radius: 10px;
 }
 
@@ -48,8 +48,8 @@ header {
 }
 
 header img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin-bottom: 10px;
   background: #fff;
   border-radius: 50%;
@@ -60,7 +60,7 @@ header img {
 h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-dark);
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
@@ -99,17 +99,17 @@ th {
 }
 
 tr:nth-child(even) {
-  background: #fff0f5;
+  background: #f0fff5;
 }
 
 tr:hover {
-  background: #ffe6ee;
+  background: #e0f7ea;
 }
 
 td {
   font-size: 0.95rem;
   color: var(--text);
-  border-bottom: 1px solid #f3c4c4;
+  border-bottom: 1px solid #b3e6c4;
 }
 
 /* ✅ Buttons */
@@ -242,8 +242,8 @@ a[href*="delete"]:hover {
 <body>
 
   <header>
-    <!-- 🏢 Building logo with pink theme -->
-    <img src="https://cdn-icons-png.flaticon.com/512/2942/2942077.png" alt="Building Logo">
+    <!-- 🌿 Green company logo -->
+    <img src="https://cdn-icons-png.flaticon.com/512/483/483361.png" alt="Green Building Logo">
     <h1>Employee Data</h1>
   </header>
 

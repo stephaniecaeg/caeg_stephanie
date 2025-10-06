@@ -14,8 +14,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 40%, #7c3aed 100%);
-      color: #f1f5f9;
+      background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 30%, #34d399 70%, #059669 100%);
+      color: #064e3b;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -23,26 +23,29 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.4);
       backdrop-filter: blur(8px);
       width: 100%;
       max-width: 420px;
     }
 
     .logo {
-      width: 70px;
-      height: 70px;
+      width: 75px;
+      height: 75px;
       margin: 0 auto 1rem;
       display: block;
-      filter: drop-shadow(0 0 6px rgba(37,99,235,0.4));
+      border-radius: 50%;
+      background: #ecfdf5;
+      padding: 6px;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
     }
 
     h1 {
-      color: #60a5fa;
+      color: #059669;
       text-align: center;
       font-weight: 700;
       font-size: 1.6rem;
@@ -54,14 +57,14 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
       text-transform: uppercase;
       font-size: 0.8rem;
       font-weight: 600;
-      color: #94a3b8;
+      color: #065f46;
       margin-bottom: 5px;
     }
 
     .form-input, select.form-input {
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #f8fafc;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
       border-radius: 0.5rem;
       padding: 0.75rem;
       width: 100%;
@@ -70,13 +73,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
     .form-input:focus {
       outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 2px rgba(37,99,235,0.4);
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
     }
 
     select.form-input {
       appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 7l4.5 4.5L14.5 7z"/></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23065f46" height="18" viewBox="0 0 20 20" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 7l4.5 4.5L14.5 7z"/></svg>');
       background-repeat: no-repeat;
       background-position: right 0.75rem center;
       background-size: 0.9rem;
@@ -84,7 +87,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     }
 
     .company-btn {
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      background: linear-gradient(90deg, #10b981, #059669);
       color: #fff;
       padding: 0.75rem;
       border-radius: 0.5rem;
@@ -95,15 +98,15 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     }
 
     .company-btn:hover {
-      background: linear-gradient(90deg, #1d4ed8, #4338ca);
+      background: linear-gradient(90deg, #059669, #047857);
       transform: scale(1.03);
-      box-shadow: 0 4px 14px rgba(37,99,235,0.4);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
     }
 
     .back-btn {
       display: inline-block;
       margin-top: 20px;
-      color: #60a5fa;
+      color: #059669;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
@@ -111,7 +114,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     }
 
     .back-btn:hover {
-      color: #93c5fd;
+      color: #10b981;
       text-decoration: underline;
     }
   </style>
@@ -119,7 +122,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 <body>
 
   <form class="card" action="<?=site_url('students/update/'.$student['id']);?>" method="post">
-    <img src="https://cdn-icons-png.flaticon.com/512/2942/2942077.png" alt="Building Logo" class="logo">
+    <!-- 🌿 Updated green logo -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Company Logo" class="logo">
     <h1>Update User</h1>
 
     <!-- Last Name -->

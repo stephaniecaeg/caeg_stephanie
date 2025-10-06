@@ -81,7 +81,7 @@ $database['main'] = array(
     'dbprefix'	=> '',
     // Optional for SQLite
     'path'      => ''
-);
-*/
+);*/
+
 
 ?>

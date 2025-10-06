@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create User - Company Portal</title>
+  <title>Create User</title>
   <style>
 :root {
-  --primary: #ff6699;       /* Soft pink */
-  --primary-dark: #e05588;  /* Darker pink */
-  --accent: #ffd1dc;        /* Light pastel accent */
-  --bg-gradient: linear-gradient(135deg, #ffe6eb, #ffd1dc, #ffc1cc);
+  --primary: #3cb371;        /* MediumSeaGreen */
+  --primary-dark: #2e8b57;   /* Darker green */
+  --accent: #c1f0c1;         /* Light pastel accent */
+  --bg-gradient: linear-gradient(135deg, #eaffea, #d7fcd4, #c1f0c1);
   --card-bg: #ffffff;
-  --text: #4a2c2a;          /* Warm brownish text */
-  --muted: #a77b7b;
+  --text: #2f3e2f;           /* Dark grayish green text */
+  --muted: #7a9b7a;
   --radius: 12px;
 }
 
@@ -67,7 +67,7 @@ select {
   width: 100%;
   padding: 12px 10px;
   margin-bottom: 15px;
-  border: 1px solid #f3c4c4;
+  border: 1px solid #b6d8b6;
   border-radius: var(--radius);
   font-size: 0.95rem;
   background: #fff;
@@ -77,7 +77,7 @@ select {
 
 input:focus, select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+  box-shadow: 0 0 0 3px rgba(60, 179, 113, 0.25);
   outline: none;
 }
 
@@ -110,8 +110,8 @@ input[type="submit"]:hover {
 </head>
 <body>
   <form class="container" action="<?=site_url('students/create');?>" method="post">
-    <!-- 🏢 Building Logo (visible, dark version) -->
-    <img src="https://cdn-icons-png.flaticon.com/512/2942/2942077.png" alt="Building Logo" class="logo">
+    <!-- 🌿 New green-themed company logo -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Company Logo" class="logo">
 
     <h1>Create User</h1>
 
@@ -121,17 +121,14 @@ input[type="submit"]:hover {
 
     <select id="role" name="role" required>
       <option value="" disabled selected>Select Role</option>
+      <option value="Manager">Manager</option>
       <option value="Staff">Staff</option>
-      <option value="Full Stack Developer">Full Stack Developer</option>
-      <option value="Front-End Developer">Front-End Developer</option>
-      <option value="Back-End Developer">Back-End Developer</option>
-      <option value="Project Manager">Project Manager</option>
     </select>
 
     <input type="submit" value="Submit">
 
     <div class="footer">
-      🏢 &copy; 2025 Your Company Name. All Rights Reserved.
+      🌿 &copy; 2025 Your Company Name. All Rights Reserved.
     </div>
   </form>
 </body>
