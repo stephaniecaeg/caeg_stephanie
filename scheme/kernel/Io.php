@@ -140,8 +140,12 @@ Class Io {
 			}
 			return $get;
 		}
+<<<<<<< HEAD
 		return $_GET[$index] ?? null; // ✅ di na mag-e-error
 
+=======
+		return $_GET[$index];
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
 	}
 
 	/**

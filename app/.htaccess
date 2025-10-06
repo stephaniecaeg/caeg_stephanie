@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 AddDefaultCharset UTF-8
 
 <IfModule mod_rewrite.c>
@@ -11,3 +12,11 @@ AddDefaultCharset UTF-8
     # Route everything to index.php
     RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 </IfModule>
+=======
+<IfModule authz_core_module>
+    Require all denied
+</IfModule>
+<IfModule !authz_core_module>
+    Deny from all
+</IfModule>
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b

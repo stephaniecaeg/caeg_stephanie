@@ -1,4 +1,5 @@
  body {
+<<<<<<< HEAD
       font-family: 'Segoe UI', Roboto, Arial, sans-serif;
       background: #0f1923; /* Valorant dark bg */
       color: #fff;
@@ -97,3 +98,89 @@
     a[href*="create"]:hover {
       background: #059669;
     }
+=======
+            font-family: Arial, sans-serif;
+            background: #99bbdd;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #e9f3ff;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 5px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        a[href*="update"] {
+            background: #ffc107;
+            color: #333;
+        }
+
+        a[href*="update"]:hover {
+            background: #e0a800;
+            color: #fff;
+        }
+
+        a[href*="delete"] {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        a[href*="delete"]:hover {
+            background: #a71d2a;
+        }
+
+        .create-btn {
+            display: block;
+            width: max-content;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #28a745;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .create-btn:hover {
+            background: #218838;
+        }
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b

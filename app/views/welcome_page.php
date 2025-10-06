@@ -16,7 +16,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background: #f8fafc;
+<<<<<<< HEAD
             color: #334155;
+=======
+            color: #07fb17ff;
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
         }
 
         .container {
@@ -30,7 +34,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         .header {
+<<<<<<< HEAD
             background: #3B82F6; /* lighter blue */
+=======
+            background: #04fd29ff; /* lighter blue */
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
             color: #ffffff;
             padding: 2rem;
             text-align: center;
@@ -46,7 +54,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         h2 {
+<<<<<<< HEAD
             color: #1e40af;
+=======
+            color: #03ff0bff;
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
             margin-top: 2rem;
         }
 
@@ -59,7 +71,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             display: block;
             background: #f1f5f9;
             padding: 1rem;
+<<<<<<< HEAD
             border-left: 4px solid #3b82f6;
+=======
+            border-left: 4px solid #04fa29ff;
+>>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
             margin-bottom: 1rem;
             font-size: 0.9rem;
             color: #1e293b;
