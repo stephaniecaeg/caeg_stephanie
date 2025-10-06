@@ -212,11 +212,11 @@ $config['language'] 				= 'en-US';
 $config['sess_driver']             = 'file';
 $config['sess_cookie_name']        = 'LLSession';
 $config['sess_expiration']         = 7200;
-<<<<<<< HEAD
+ 
 $config['sess_save_path']          = '/tmp';
-=======
+
 $config['sess_save_path']          = '';
->>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
+ 
 $config['sess_match_ip']           = TRUE;
 $config['sess_match_fingerprint']  = TRUE;
 $config['sess_time_to_update']     = 300;
@@ -279,11 +279,11 @@ $config['encryption_key']           = '';
 |   $config['soft_delete_column'] = 'deleted_at;
 |
 */
-<<<<<<< HEAD
+ 
 $config['soft_delete']              = TRUE;
-=======
+
 $config['soft_delete']              = FALSE;
->>>>>>> f72712ed06d5ddc949ff389dcb9a453e2a1a5c0b
+ 
 $config['soft_delete_column']       = 'deleted_at';
 
 /*
